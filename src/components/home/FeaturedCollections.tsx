@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Container } from '../ui/Container';
 import { ArrowDownRight } from 'lucide-react';
-import showroomNewImg from '../../assets/images/pict_toko.svg';
+import showroomNewImg from '../../assets/images/pict_toko.jpg';
 
 interface FeaturedCollectionsProps {
   onSelectProduct?: (product: any) => void;

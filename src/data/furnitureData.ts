@@ -1,8 +1,8 @@
-import cat1 from '../assets/images/img_cat/cat_1.svg';
-import cat2 from '../assets/images/img_cat/cat_2.svg';
-import cat3 from '../assets/images/img_cat/cat_3.svg';
-import cat4 from '../assets/images/img_cat/cat_4.svg';
-import cat5 from '../assets/images/img_cat/cat_5.svg';
+import cat1 from '../assets/images/img_cat/cat_1.jpg';
+import cat2 from '../assets/images/img_cat/cat_2.jpg';
+import cat3 from '../assets/images/img_cat/cat_3.jpg';
+import cat4 from '../assets/images/img_cat/cat_4.jpg';
+import cat5 from '../assets/images/img_cat/cat_5.jpg';
 
 export type Category = 'all' | 'living' | 'dining' | 'bedroom' | 'lighting' | 'accent' | 'decor';
 

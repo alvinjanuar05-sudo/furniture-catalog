@@ -16,11 +16,11 @@ import type { Product } from '../../data/furnitureData';
 
 // Import gambar produk khusus untuk Hero Beranda
 import newChairHeroImg from '../../assets/images/8e423236-9904-49df-86f6-25be52abfe6d_removalai_preview.png';
-import produk_1 from '../../assets/images/produk_1.svg';
-import produk_2 from '../../assets/images/produk_2.svg';
-import produk_3 from '../../assets/images/produk_3.svg';
-import produk_4 from '../../assets/images/produk_4.svg';
-import produk_5 from '../../assets/images/produk_5.svg';
+import produk_1 from '../../assets/images/produk_1.jpg';
+import produk_2 from '../../assets/images/produk_2.jpg';
+import produk_3 from '../../assets/images/produk_3.jpg';
+import produk_4 from '../../assets/images/produk_4.jpg';
+import produk_5 from '../../assets/images/produk_5.jpg';
 
 interface HeroProps {
   onSelectProduct?: (product: Product) => void;
@@ -135,7 +135,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCatalog, onAddToCart }) => 
     return () => clearTimeout(timer);
   }, []);
 
-  // FUNGSI SCROLL KANAN-KIRI NATIVE (1 KARTU PERSISI)
+  // FUNGSI SCROLL KANAN-KIRI NATIVE (1 KARTU PRESISI)
   const handleNext = () => {
     if (scrollContainerRef.current) {
       const cardWidth = scrollContainerRef.current.firstElementChild?.clientWidth || 280;
@@ -278,11 +278,11 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCatalog, onAddToCart }) => 
                   />
                 </div>
 
-                {/* KOTAK TEKS SIMETRIS */}
-                <div className="w-3/4 sm:w-2/3 bg-white rounded-2xl py-2.5 px-4 shadow-sm group-hover:shadow-md border border-white group-hover:border-[#ff4500]/50 text-center relative overflow-hidden h-[54px] flex items-center justify-center transition-all duration-300">
+                {/* KOTAK TEKS SIMETRIS (HOVER SLIDE HANYA DI DESKTOP) */}
+                <div className="w-3/4 sm:w-2/3 bg-white rounded-2xl py-2.5 px-4 shadow-sm group-hover:shadow-md border border-white md:group-hover:border-[#ff4500]/50 text-center relative overflow-hidden h-[54px] flex items-center justify-center transition-all duration-300">
                   
                   {/* State Normal: Nama Produk & Harga */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center transition-all duration-300 ease-out group-hover:-translate-y-full group-hover:opacity-0">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center transition-all duration-300 ease-out md:group-hover:-translate-y-full md:group-hover:opacity-0">
                     <h3 className="font-normal text-stone-900 text-xs sm:text-sm tracking-wide truncate px-2">
                       {item.name}
                     </h3>
@@ -291,8 +291,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCatalog, onAddToCart }) => 
                     </p>
                   </div>
 
-                  {/* State Hover: Transisi ke VIEW DETAILS */}
-                  <div className="absolute inset-0 flex items-center justify-center translate-y-full opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                  {/* State Hover: Transisi ke VIEW DETAILS (Aktif Khusus Layar Desktop md:) */}
+                  <div className="absolute inset-0 items-center justify-center translate-y-full opacity-0 transition-all duration-300 ease-out md:group-hover:translate-y-0 md:group-hover:opacity-100 hidden md:flex">
                     <span className="text-xs font-normal tracking-widest text-[#ff4500] uppercase">
                       VIEW DETAILS
                     </span>
@@ -389,17 +389,18 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCatalog, onAddToCart }) => 
         </Container>
       </div>
 
-      {/* 4. APPLE STYLE POP-UP CARD */}
+      {/* 4. APPLE STYLE POP-UP CARD (FULL COVER IMAGE) */}
       {modalProduct && (
         <div className="fixed inset-0 z-50 bg-stone-950/50 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300 font-sans">
           
           <div className="relative w-[320px] sm:w-[360px] h-[480px] sm:h-[520px] bg-[#eae3d9] rounded-[40px] shadow-2xl overflow-hidden border border-white/60 flex flex-col justify-between p-6 select-none font-sans">
             
-            <div className="absolute inset-0 w-full h-full z-0 flex items-center justify-center p-6">
+            {/* GAMBAR FULL BLEED COVER */}
+            <div className="absolute inset-0 w-full h-full z-0">
               <img
                 src={modalProduct.image}
                 alt={modalProduct.name}
-                className="w-full h-full object-contain transform hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
               />
             </div>
 
